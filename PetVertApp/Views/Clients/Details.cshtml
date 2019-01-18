@@ -16,10 +16,10 @@
 
 
 
-    <h2>Details</h2>
+  
 
     <div>
-        <h4>Clients</h4>
+        <h4>Clients Info and Pets</h4>
         <hr />
         <dl class="dl-horizontal">
             <dt>
@@ -76,15 +76,19 @@
         <a href="@Url.Action("Create", "Pets",new { clientid = Model.id })">Add Pet</a>
 
     </p>
+    <br>
+    <br>
+    <h3>Select Pet To Treat</h3>
+
 
     @if (Model.Pets != null)
     {
 
         <table class="table">
             <tr>
-                <th>
+                @*<th>
                    Client Name
-                </th>
+                </th>*@
                 <th>
                    Name
                 </th>
@@ -115,9 +119,9 @@
             @foreach (var item in Model.Pets)
             {
                 <tr>
-                    <td>
+                    @*<td>
                         @Html.DisplayFor(modelItem => item.client.fullname)
-                    </td>
+                    </td>*@
                     <td>
                         @Html.DisplayFor(modelItem => item.name)
                     </td>

@@ -19,6 +19,9 @@ namespace PetVertApp.Models
         [Display(Name = "Client Name")]
         public int clientid { get; set; }
 
+        [Display(Name = "Client Name")]
+        public int id { get; set; }
+
         public int numberoftreatments { get; set; }
 
         public int upcomingrevaccinationstoday { get; set; }
