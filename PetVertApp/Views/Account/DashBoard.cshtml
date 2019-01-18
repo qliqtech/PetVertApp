@@ -1,0 +1,56 @@
+﻿@model PetVertApp.Models.DashBoardViewmodel
+
+
+
+@{
+    ViewBag.Title = "DashBoard";
+}
+
+<style>
+    .right_col {
+        min-height: 1700px !important;
+    }
+</style>
+
+<div class="right_col" role="main">
+
+    <div class="row tile_count">
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Total Clients</span>
+            <div class="count">@Html.DisplayFor(modelItem => modelItem.countclients)</div>
+           
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-clock-o"></i> Total Pets</span>
+            <div class="count">@Html.DisplayFor(modelItem => modelItem.countpets)</div>
+           
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Upcoming Revaccinations</span>
+            <div class="count green">@Html.DisplayFor(modelItem => modelItem.upcomingrevaccinationstoday)</div>
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Upcoming Redeworming</span>
+            <div class="count">@Html.DisplayFor(modelItem => modelItem.upcomingredewormingtoday)</div>
+         
+        </div>
+        <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
+            <span class="count_top"><i class="fa fa-user"></i> Number Of Treatments</span>
+            <div class="count">@Html.DisplayFor(modelItem => modelItem.numberoftreatments)</div>
+
+        </div>
+      
+    </div>
+
+
+    <h1>DashBoard</h1>
+    <h3><a href="@Url.Action("Dashboard", "Home")">New Treatment</a></h3>
+    <h3><a href="@Url.Action("Dashboard", "Home")">New Client </a></h3>
+    <h3><a href="@Url.Action("Dashboard", "Home")">New Pet</a></h3>
+
+
+
+
+
+
+    </div>

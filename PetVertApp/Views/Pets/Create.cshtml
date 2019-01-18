@@ -1,0 +1,152 @@
+﻿@model PetVertApp.Models.Pet
+
+@{
+    ViewBag.Title = "Create";
+
+    int clientid = ViewBag.clientsid;
+
+}
+
+
+
+<style>
+
+    .right_col {
+        
+        min-height: 1700px !important;
+    
+        }
+
+</style>
+
+<div class="right_col" role="main">
+
+    <div class="page-title">
+        <div class="title_left">
+            <h3>Pet Administration</h3>
+        </div>
+        <div class="title_right">
+
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Create User <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li>
+                            <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+
+                        <li>
+                            <a class="close-link"><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+                    <br /><br /><br />
+                    @using (Html.BeginForm("Create", "Pets", FormMethod.Post, new { @class = "form-horizontal form-label-left" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.HiddenFor(model => model.clientsid, new { clientsid = "", Value = clientid });
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.name, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.EditorFor(model => model.name, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.breed, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.EditorFor(model => model.breed, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12", @type = "password" } })
+                                @Html.ValidationMessageFor(model => model.breed, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.color, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.EditorFor(model => model.color, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                @Html.ValidationMessageFor(model => model.color, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.age, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.EditorFor(model => model.age, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                @Html.ValidationMessageFor(model => model.age, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.gender, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                Male
+                                @Html.RadioButtonFor(model => model.gender, "male", new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } } )
+
+                                Female
+                                @Html.RadioButtonFor(model => model.gender, "female", new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+
+                                @Html.ValidationMessageFor(model => model.gender, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.type, htmlAttributes: new { @class = "control-label col-md-3 col-sm-3 col-xs-12" })
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                @Html.EditorFor(model => model.type, new { htmlAttributes = new { @class = "form-control col-md-7 col-xs-12" } })
+                                @Html.ValidationMessageFor(model => model.type, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+                       
+
+
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                            <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                <button class="btn btn-primary" type="reset">Reset</button>
+                                <button type="submit" class="btn btn-success">Add Pet</button>
+                            </div>
+                        </div>
+                     
+
+                      
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+
+</div>
+
+
+
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
