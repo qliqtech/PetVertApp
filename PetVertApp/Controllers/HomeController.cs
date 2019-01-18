@@ -12,7 +12,8 @@ namespace PetVertApp.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("DashBoard", "Account");
+           // return View();
         }
 
         public ActionResult About()

@@ -83,6 +83,13 @@ namespace PetVertApp.Controllers
             
             DashBoardViewmodel viewModel = new DashBoardViewmodel();
 
+            viewModel.Clients = db.Clients.Select(x =>
+                        new SelectListItem
+                        {
+                            Value = x.id.ToString(),
+                            Text = x.fullname
+                        });
+
             viewModel.countclients = db.Clients.Count();
 
             viewModel.countpets = db.Pet.Count();
