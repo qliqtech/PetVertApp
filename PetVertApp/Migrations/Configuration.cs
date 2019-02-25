@@ -1,5 +1,6 @@
 namespace PetVertApp.Migrations
 {
+    using Helpers;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -38,12 +39,13 @@ namespace PetVertApp.Migrations
 
               new Models.Users
               {
+                  id = 1,
                   fullname = "ROOT USER",
                   email = "admin@petshop.com",
                   IsActive = true,
                   IsDeleted = false,
                   usertype = "super",
-                  password = "admin123",
+                  password = PasswordEncryptionHelper.EncodePassword("admin123"),
                   phonenumber = "12345555",
                   resetpasswordonlogin = false,
                   CreatedBy = 1,

@@ -44,17 +44,22 @@ namespace PetVertApp.Controllers
         [HttpPost]
         public ActionResult Login(LoginViewModel viewModel) {
 
+            if (ModelState.IsValid) {
 
-            userhelper = new UserHelper();
+                userhelper = new UserHelper();
 
-            if (userhelper.Login(viewModel.Email, viewModel.Password)) {
-
-
-                FormsAuthentication.SetAuthCookie(viewModel.Email, viewModel.RememberMe);
+                if (userhelper.Login(viewModel.Email, PasswordEncryptionHelper.EncodePassword(viewModel.Password)))
+                {
 
 
-                return RedirectToAction("DashBoard");
+                    FormsAuthentication.SetAuthCookie(viewModel.Email, viewModel.RememberMe);
 
+
+                    return RedirectToAction("DashBoard");
+                }
+
+                viewModel.Password = "";
+                return View(viewModel);
                 //    return RedirectToAction("Index", "Clients");
             }
 

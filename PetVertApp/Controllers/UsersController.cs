@@ -57,7 +57,7 @@ namespace PetVertApp.Controllers
             if (ModelState.IsValid)
             {
 
-            //    Users user = new Users();
+          //      var keyNew = PasswordEncryptionHelper.GeneratePassword(10);
 
                 users.CreatedOn = DateTime.Now;
 
@@ -67,7 +67,7 @@ namespace PetVertApp.Controllers
 
                 users.IsDeleted = false;
 
-
+                users.password = PasswordEncryptionHelper.EncodePassword(users.password);
 
                 db.User.Add(users);
                 db.SaveChanges();

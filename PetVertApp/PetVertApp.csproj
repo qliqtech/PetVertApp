@@ -206,6 +206,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ClientsHelper.cs" />
+    <Compile Include="Helpers\PasswordEncryptionHelper.cs" />
     <Compile Include="Helpers\UserHelper.cs" />
     <Compile Include="Migrations\201812181601125_InitialCreate.cs" />
     <Compile Include="Migrations\201812181601125_InitialCreate.Designer.cs">

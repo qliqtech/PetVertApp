@@ -59,7 +59,7 @@ namespace PetVertApp.Controllers
 
             viewmodel.createdon = clients.CreatedOn;
 
-            viewmodel.createdbyuserfullname = userhelper.getuserdetailsbyid(clients.CreatedBy).fullname;
+        //    viewmodel.createdbyuserfullname = userhelper.getuserdetailsbyid(clients.CreatedBy).fullname;
             
             return View(viewmodel);
         }
@@ -94,7 +94,10 @@ namespace PetVertApp.Controllers
 
                 db.Clients.Add(clients);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+
+                return Redirect("/Pets/Create?clientid="+clients.id);
+
+                //return RedirectToAction("Index");
             }
 
             return View(clients);
